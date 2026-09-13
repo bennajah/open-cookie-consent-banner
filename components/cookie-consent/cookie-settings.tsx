@@ -26,9 +26,9 @@ export interface CookieSettingsProps {
   description?: string
   acceptAllText?: string
   rejectAllText?: string
-  savePreferencesAltText?: string
-  readAltText?: string
-  privacyPolicyAltText?: string
+  savePreferencesText?: string 
+  readText?: string
+  privacyPolicyText?: string
 } 
 
 export function CookieSettings({
@@ -38,9 +38,9 @@ export function CookieSettings({
   description = "Manage your cookie preferences below.",
   acceptAllText = "Accept All",
   rejectAllText = "Reject All",
-  savePreferencesAltText = "Save Preferences",
-  readAltText = "Read our",
-  privacyPolicyAltText = "Privacy Policy",
+  savePreferencesText = "Save Preferences",
+  readText = "Read our",
+  privacyPolicyText = "Privacy Policy",
 }: CookieSettingsProps) {
   const { isSettingsOpen, closeSettings, state, updateConsent, config, acceptAll, rejectAll } = useCookieConsent()
 
@@ -165,20 +165,20 @@ export function CookieSettings({
             className={cn("w-full sm:w-auto gap-2", buttonRadiusClass)}
           >
             <Check className="h-4 w-4" />
-            {savePreferencesAltText}
+            {savePreferencesText}
           </Button>
         </DialogFooter>
 
         {config.privacyPolicyUrl && (
           <p className="text-xs text-center text-muted-foreground">
-            {readAltText}{" "}
+            {readText}{" "}
             <a
               href={config.privacyPolicyUrl}
               className="underline underline-offset-4 hover:text-foreground transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {privacyPolicyAltText}
+              {privacyPolicyText}
             </a>
           </p>
         )}
